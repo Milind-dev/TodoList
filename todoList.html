@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Todo list</title>
+</head>
+<body>
+	<div>
+		<form id="creator">
+			<input type="text" name="" id="item" />
+			<input type="submit" />
+		</form>
+		<hr>
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody id="items">
+				<!-- <tr>
+					<td>Rice</td>
+					<td><button>Done</button></td>
+				</tr> -->
+				<tr>
+					<td>item value</td>
+					<td><button>mark completed</button></td>
+				</tr>
+			</tbody>
+		</table>
+		<script type="text/javascript">
+			var creatorForm = document.getElementById('creator')
+			var itemsParent = document.getElementById("items");
+
+			// var items = [
+			// 	{'item':"class","done":false},
+
+			// ];
+			// var items = [];
+
+			function submitForm(event){
+				var item = document.getElementById('item').value;
+				createItem(item);
+				event.preventDefault();
+			}
+			function createItem(item){
+				// console.log(item);
+				var row = document.createElement('tr');
+				var col1 =document.createElement('td');
+				col1.textContent = item;
+				var col2 = document.createElement('td');
+				var btn = document.createElement('button');
+				btn.textContent = "mark complete";
+				btn.addEventListener('click',markComplete);
+				
+				// Adding btn to col2
+				col2.appendChild(btn);
+				// Adding col1 and col2 to row
+				row.appendChild(col1);
+				row.appendChild(col2);
+				// Adding row to items tbody
+				itemsParent.appendChild(row);	
+			}
+
+			function markComplete(event){
+				var item = event.target;
+				item.textContent = "complete";
+				item.style.color = "green";
+			}
+
+
+			creatorForm.addEventListener('submit',submitForm);
+		</script>
+	</div>
+</body>
+</html>
+
+<!--
+function hello(event){
+	
+}
+ value, addEventListener('',hello) }
+textcontrmy = item
+-->
