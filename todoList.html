@@ -3,6 +3,21 @@
 <head>
 	<title>Todo list</title>
 </head>
+<style type="text/css">
+	body{
+		background-color: black;
+		width: 500px;
+		height: 250px;
+		font-weight: bold;
+		color: white;
+		cursor: blink;
+		margin: 220px auto;
+	}
+	div{
+		border: 3px solid white;
+		background-color: dodgerblue;
+	}
+</style>
 <body>
 	<div>
 		<form id="creator">
@@ -63,9 +78,12 @@
 			}
 
 			function markComplete(event){
+				// event.preventDefault();
 				var item = event.target;
 				item.textContent = "complete";
 				item.style.color = "green";
+				item.style.fontWeight = 700;
+				
 			}
 
 
